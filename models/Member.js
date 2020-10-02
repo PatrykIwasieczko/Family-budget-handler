@@ -14,6 +14,11 @@ const memberSchema = new mongoose.Schema({
         required: [true, "Proszę podać hasło"],
         minlength: [6, "Hasło musi mieć co najmniej 6 znaków"],
     },
+    name: {
+        type: String,
+        required: [true, "Proszę podać imię i nazwisko"],
+        trim: true,
+    },
     family: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Family",
