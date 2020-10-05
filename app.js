@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const connectDB = require("./config/db");
 const dotenv = require("dotenv");
+const authRoutes = require("./routes/authRoutes");
 
 // Load config
 dotenv.config({ path: "./config/config.env" });
@@ -26,3 +27,4 @@ app.listen(
 
 // routes
 app.get("/", (req, res) => res.render("home"));
+app.use(authRoutes);
