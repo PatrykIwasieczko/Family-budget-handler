@@ -16,7 +16,7 @@ const Header = () => {
                     <a href="/login">Zaloguj się</a>
                 </li>
                 <li>
-                    <a href="/signup" class="btn">
+                    <a href="/signup" className="btn">
                         Zarejestruj się
                     </a>
                 </li>

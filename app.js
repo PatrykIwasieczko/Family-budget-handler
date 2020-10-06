@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const authRoutes = require("./routes/authRoutes");
 const familyRoutes = require("./routes/familyRoutes");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const { requireAuth, checkMember } = require("./middleware/authMiddleware");
 
 // Load config
@@ -16,6 +17,7 @@ const app = express();
 // middleware
 app.use(express.static("public"));
 app.use(express.json());
+app.use(cors());
 app.use(cookieParser());
 
 // view engine
