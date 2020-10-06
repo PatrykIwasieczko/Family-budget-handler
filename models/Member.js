@@ -5,19 +5,20 @@ const bcrypt = require("bcrypt");
 const memberSchema = new mongoose.Schema({
     email: {
         type: String,
-        required: [true, "Proszę podać adres e-mail"],
+        required: [true, "incorrect email"],
         unique: true,
         validate: [isEmail, "Proszę podać poprawny numer e-mail"],
     },
     password: {
         type: String,
-        required: [true, "Proszę podać hasło"],
+        required: [true, "incorrect password"],
         minlength: [6, "Hasło musi mieć co najmniej 6 znaków"],
     },
     name: {
         type: String,
-        required: [true, "Proszę podać imię i nazwisko"],
+        required: [true, "incorrect name"],
         trim: true,
+        minlength: [5, "Podaj poprawne imię i nazwisko"],
     },
     family: {
         type: mongoose.Schema.Types.ObjectId,

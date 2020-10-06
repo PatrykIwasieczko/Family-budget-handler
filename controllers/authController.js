@@ -8,11 +8,16 @@ dotenv.config({ path: "./config/config.env" });
 // handle errors
 const handleErrors = (err) => {
     console.log(err.message, err.code);
-    let errors = { email: "", password: "" };
+    let errors = { email: "", name: "", password: "" };
 
     // incorrect email
     if (err.message === "incorrect email") {
         errors.email = "Niepoprawny email";
+    }
+
+    // incorrect password
+    if (err.message === "incorrect name") {
+        errors.password = "Podaj swoje imię i nazwisko";
     }
 
     // incorrect password
@@ -27,7 +32,7 @@ const handleErrors = (err) => {
     }
 
     // validation errors
-    if (err.message.includes("user validation failed")) {
+    if (err.message.includes("member validation failed")) {
         Object.values(err.errors).forEach(({ properties }) => {
             errors[properties.path] = properties.message;
         });
@@ -79,4 +84,9 @@ module.exports.signup_post = async (req, res) => {
         const errors = handleErrors(err);
         res.status(400).json({ errors });
     }
+};
+
+module.exports.logout_get = (req, res) => {
+    res.cookie("jwt", "", { maxAge: 1 });
+    res.redirect("/");
 };

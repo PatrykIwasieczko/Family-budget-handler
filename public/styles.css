@@ -30,6 +30,7 @@ ul {
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 nav {
@@ -60,6 +61,7 @@ nav li a {
 .btn {
     border-radius: 36px;
     background: #FEE996;
+    cursor: pointer;
 }
 
 form h2 {
@@ -101,6 +103,7 @@ button {
     display: block;
     padding: 10px 16px;
     letter-spacing: 2px;
+    cursor: pointer;
 }
 
 .error {
