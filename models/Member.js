@@ -32,7 +32,7 @@ memberSchema.pre("save", async function (next) {
     next();
 });
 
-// static method to login user
+// static method to login member
 memberSchema.statics.login = async function (email, password) {
     const member = await this.findOne({ email });
     if (member) {
