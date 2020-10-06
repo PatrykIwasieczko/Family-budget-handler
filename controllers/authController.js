@@ -21,3 +21,17 @@ module.exports.login_get = (req, res) => {
 module.exports.signup_get = (req, res) => {
     res.render("signup");
 };
+
+module.exports.signup_post = async (req, res) => {
+    const { email, name, password } = req.body;
+
+    try {
+        const member = await Member.create({ email, name, password });
+        const token = createToken(member._id);
+        res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+        res.status(201).json({ member: member._id });
+    } catch (err) {
+        console.log(err);
+        res.status(400).json();
+    }
+};
