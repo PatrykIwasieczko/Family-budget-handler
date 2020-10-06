@@ -11,6 +11,12 @@
     <nav>
         <h1><a href="/">Family budget manager</a></h1>
         <ul>
-            <li>Welcome</li>
+            <% if (member) { %>
+            <li>Welcome, <%= user.email %></li>
+            <li><a href="/logout">Log out</a></li>
+            <% } else { %>
+            <li><a href="/login">Log in</a></li>
+            <li><a href="/signup" class="btn">Sign up</a></li>
+            <% } %>
         </ul>
     </nav>
