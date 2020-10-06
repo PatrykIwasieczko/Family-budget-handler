@@ -1,8 +1,9 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const connectDB = require("./config/db");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/authRoutes");
+const cookieParser = require("cookie-parser");
+const { requireAuth, checkMember } = require("./middleware/authMiddleware");
 
 // Load config
 dotenv.config({ path: "./config/config.env" });
@@ -14,6 +15,7 @@ const app = express();
 // middleware
 app.use(express.static("public"));
 app.use(express.json());
+app.use(cookieParser());
 
 // view engine
 app.set("view engine", "ejs");
@@ -26,5 +28,7 @@ app.listen(
 );
 
 // routes
+app.get("*", checkMember);
 app.get("/", (req, res) => res.render("home"));
+app.get("/main", requireAuth, (req, res) => res.render("main"));
 app.use(authRoutes);
