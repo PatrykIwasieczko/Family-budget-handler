@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const { Member } = require("./Member");
+const { Deposit } = require("./Deposit");
+const { Expense } = require("./Expense");
 
 const familySchema = new mongoose.Schema({
     name: {
@@ -13,7 +15,7 @@ const familySchema = new mongoose.Schema({
         type: [Deposit],
     },
     expenses: {
-        type: [Expenses],
+        type: [Expense],
     },
 });
 

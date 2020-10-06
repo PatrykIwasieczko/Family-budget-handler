@@ -2,6 +2,7 @@ const express = require("express");
 const connectDB = require("./config/db");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/authRoutes");
+const familyRoutes = require("./routes/familyRoutes");
 const cookieParser = require("cookie-parser");
 const { requireAuth, checkMember } = require("./middleware/authMiddleware");
 
@@ -32,3 +33,4 @@ app.get("*", checkMember);
 app.get("/", (req, res) => res.render("home"));
 app.get("/main", requireAuth, (req, res) => res.render("main"));
 app.use(authRoutes);
+app.use(familyRoutes);
