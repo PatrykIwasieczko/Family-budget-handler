@@ -1,22 +1,23 @@
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Family budget manager</title>
+        <link rel="stylesheet" href="/styles.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family budget manager</title>
-    <link rel="stylesheet" href="/styles.css">
-</head>
-
-<body>
-    <nav>
-        <h1><a href="/">Family budget manager</a></h1>
-        <ul>
-            <% if (member) { %>
-            <li>Witaj, <%= member.name %></li>
-            <li><a href="/logout">Wyloguj się</a></li>
-            <% } else { %>
-            <li><a href="/login">Zaloguj się</a></li>
-            <li><a href="/signup" class="btn">Zarejestruj się</a></li>
-            <% } %>
-        </ul>
-    </nav>
+    <body>
+        <nav>
+            <h1><a href="/">Family budget manager</a></h1>
+            <ul>
+                <% if (member) { %>
+                <li>Witaj, <%= member.name %></li>
+                <li><a href="/logout">Wyloguj się</a></li>
+                <% } else { %>
+                <li><a href="/login">Zaloguj się</a></li>
+                <li><a href="/signup" class="btn">Zarejestruj się</a></li>
+                <% } %>
+            </ul>
+        </nav>
+    </body>
+</html>

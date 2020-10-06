@@ -21,7 +21,7 @@ app.use(cookieParser());
 // view engine
 app.set("view engine", "ejs");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 app.listen(
     PORT,
