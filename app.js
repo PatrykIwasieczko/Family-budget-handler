@@ -20,9 +20,6 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
-// view engine
-app.set("view engine", "ejs");
-
 const PORT = process.env.PORT || 8000;
 
 app.listen(
