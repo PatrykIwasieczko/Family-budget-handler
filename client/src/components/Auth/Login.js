@@ -55,7 +55,7 @@ const Login = () => {
                 value={values.email}
                 onChange={handleLoginChange}
             />
-            <div className="email error"></div>
+            <div className="email error">{errors.email}</div>
             <label htmlFor="password">Hasło</label>
             <input
                 type="password"
@@ -63,7 +63,7 @@ const Login = () => {
                 value={values.password}
                 onChange={handleLoginChange}
             />
-            <div className="password error"></div>
+            <div className="password error">{errors.password}</div>
             <button onClick={handleLogin}>Zaloguj się</button>
         </form>
     );
